@@ -1,0 +1,69 @@
+<c:FragmentDefinition
+    xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <m:Toolbar>
+        <m:Title
+            text="{i18n>productsTableTitle}"
+            level="H2"
+        />
+    </m:Toolbar>
+    <m:Text
+        text="{i18n>selectProductInstruction}"
+        class="sapUiSmallMarginBottom"
+    />
+    <Table
+        id="productsTableId"
+        rows="{ProductsModel>/}"
+        selectionMode="Single"
+        selectionBehavior="RowOnly"
+        visibleRowCount="0"
+        rowSelectionChange="onProductSelect"
+    >
+        <columns>
+            <Column
+                sortProperty="Product"
+                filterProperty="Product"
+                tooltip="{i18n>productIDTooltip}"
+            >
+                <m:Label text="{i18n>ProductId}" />
+                <template>
+                    <m:Text
+                        text="{ProductsModel>Product}"
+                        tooltip="{ProductsModel>Product}"
+                    />
+                </template>
+            </Column>
+
+            <Column
+                sortProperty="Name"
+                filterProperty="Name"
+                tooltip="{i18n>productNameTooltip}"
+            >
+                <m:Label text="{i18n>ProductName}" />
+                <template>
+                    <m:Text
+                        text="{ProductsModel>Name}"
+                        tooltip="{ProductsModel>Name}"
+                    />
+                </template>
+            </Column>
+
+            <Column
+                sortProperty="Price"
+                filterProperty="Price"
+                tooltip="{i18n>productPriceTooltip}"
+            >
+                <m:Label text="{i18n>ProductPrice}" />
+                <template>
+                    <m:ObjectNumber
+                        number="{ProductsModel>Price}"
+                        unit="{ProductsModel>Currency}"
+                        tooltip="{= 'Price: ' + ${ProductsModel>Price} + ' ' + ${ProductsModel>Currency} }"
+                    />
+                </template>
+            </Column>
+        </columns>
+    </Table>
+</c:FragmentDefinition>

@@ -1,0 +1,53 @@
+<c:FragmentDefinition
+    xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <m:Toolbar>
+        <m:Title
+            text="{i18n>suppliersTableTitle}"
+            level="H2"
+        />
+    </m:Toolbar>
+    <m:Text
+        text="{i18n>selectSupplierInstruction}"
+        class="sapUiSmallMarginBottom"
+    />
+    <Table
+        id="suppliersTableId"
+        rows="{SuppliersModel>/}"
+        selectionMode="Single"
+        selectionBehavior="RowOnly"
+        visibleRowCount="10"
+        rowSelectionChange="onSupplierSelect"
+        ariaLabelledBy="suppliersTableLabel"
+    >
+        <columns>
+            <Column
+                sortProperty="Supplier"
+                filterProperty="Supplier"
+                tooltip="{i18n>supplierIDTooltip}"
+            >
+                <m:Label text="{i18n>SupplierID}" />
+                <template>
+                    <m:Text
+                        text="{SuppliersModel>Supplier}"
+                        tooltip="{SuppliersModel>Supplier}"
+                    />
+                </template>
+            </Column>
+            <Column
+                sortProperty="CompanyName"
+                filterProperty="CompanyName"
+            >
+                <m:Label text="{i18n>CompanyName}" />
+                <template>
+                    <m:Text
+                        text="{SuppliersModel>CompanyName}"
+                        tooltip="{SuppliersModel>CompanyName}"
+                    />
+                </template>
+            </Column>
+        </columns>
+    </Table>
+</c:FragmentDefinition>

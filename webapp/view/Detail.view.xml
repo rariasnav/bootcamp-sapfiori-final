@@ -1,0 +1,81 @@
+<mvc:View
+    controllerName="com.bootcamp.sapui5.smartnewapp.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Page
+        id="detailPage"
+        title="{i18n>supplierDetails}"
+    >
+        <content>
+            <VBox
+                class="sapUiSmallMargin"
+                renderType="Bare"
+            >
+                <f:SimpleForm
+                    id="supplierForm"
+                    layout="ResponsiveGridLayout"
+                    editable="false"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="6"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="2"
+                    singleContainerFullSize="false"
+                >
+                    <f:content>
+                        <!-- Invisible title for screen readers -->
+                        <Title
+                            id="supplierFormLabel"
+                            text="{i18n>supplierDetails}"
+                            visible="false"
+                        />
+
+                        <Label text="{i18n>SupplierID}" labelFor="supplierIdText" />
+                        <Text id="supplierIdText" text="{Supplier}" />
+
+                        <Label text="{i18n>CompanyName}" labelFor="companyNameText" />
+                        <Text id="companyNameText" text="{CompanyName}" />
+
+                        <Label text="{i18n>PhoneNumber}" labelFor="phoneNumberText" />
+                        <Text id="phoneNumberText" text="{PhoneNumber}" />
+
+                        <Label text="{i18n>EmailAddress}" labelFor="emailText" />
+                        <Text id="emailText" text="{EmailAddress}" />
+
+                        <Label text="{i18n>Country}" labelFor="countryText" />
+                        <Text
+                        id="countryText"
+                            text="{path: 'to_Address/FullAddress', formatter: '.formatter.getCountryFromAddress'}"
+                        />
+                    </f:content>
+                </f:SimpleForm>
+
+                <c:Fragment
+                    fragmentName="com.bootcamp.sapui5.smartnewapp.view.fragments.ProductsTable"
+                    type="XML"
+                />
+
+                <HBox
+                    justifyContent="End"
+                    class="sapUiSmallMarginTop"
+                >
+                    <Button
+                        text="{i18n>newItemDialogOpenButton}"
+                        icon="sap-icon://add"
+                        press=".onOpenNewMaterialDialog"
+                        type="Emphasized"
+                        tooltip="{i18n>newItemDialogOpenTooltip}"
+                        ariaHasPopup="Dialog"
+                    />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,71 @@
+<c:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <m:VBox class="sapUiSmallMargin">
+        <m:Text text="{i18n>filterByTitle}" />
+        <m:HBox class="sapUiSmallMarginTop">
+            <m:VBox class="sapUiSmallMarginEnd">
+                <m:Label
+                    text="{i18n>filterSupplierID}"
+                    labelFor="inputSupplierID"
+                />
+                <m:Input
+                    id="inputSupplierID"
+                    value="{LocalModel>/filterSupplierID}"
+                />
+            </m:VBox>
+            <m:VBox class="sapUiSmallMarginEnd">
+                <m:Label
+                    text="{i18n>filterCompanyName}"
+                    labelFor="inputCompanyName"
+                />
+                <m:Input
+                    id="inputCompanyName"
+                    value="{LocalModel>/filterCompanyName}"
+                    liveChange=".onFilterSuppliers"
+                />
+            </m:VBox>
+            <m:VBox class="sapUiSmallMarginEnd">
+                <m:Label
+                    text="{i18n>filterEmail}"
+                    labelFor="inputEmail"
+                />
+                <m:Input
+                    id="inputEmail"
+                    value="{LocalModel>/filterEmail}"
+                    liveChange=".onFilterSuppliers"
+                />
+            </m:VBox>
+            <m:VBox class="sapUiSmallMarginEnd">
+                <m:Label
+                    text="{i18n>filterPhone}"
+                    labelFor="inputPhone"
+                />
+                <m:Input
+                    id="inputPhone"
+                    value="{LocalModel>/filterPhone}"
+                    liveChange=".onFilterSuppliers"
+                />
+            </m:VBox>
+            <m:VBox class="sapUiSmallMarginEnd">
+                <m:Label text=" " /><!-- Space just to align the buton -->                
+                <m:Button
+                    icon="sap-icon://filter"
+                    text="{i18n>applyFilters}"
+                    press=".onFilterSuppliers"
+                    tooltip="{i18n>applyFilterTooltip}"
+                />
+            </m:VBox>
+            <m:VBox class="sapUiSmallMarginEnd">
+                <m:Label text=" " /><!-- Space just to align the buton -->                
+                <m:Button
+                    icon="sap-icon://clear-filter"
+                    text="{i18n>clearFilters}"
+                    press=".onClearFilters"
+                    tooltip="{i18n>clearFiltersTooltip}"
+                />
+            </m:VBox>
+        </m:HBox>
+    </m:VBox>
+</c:FragmentDefinition>

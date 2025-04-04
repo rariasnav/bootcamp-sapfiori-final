@@ -1,0 +1,81 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Dialog
+        id="productDetailsDialog"
+        title="{i18n>ProductDetail}"
+        icon="sap-icon://product"
+        class="sapUiSizeCompact"
+        draggable="true"
+        resizable="true"
+        ariaLabelledBy="dialogTitle"
+    >
+        <content>
+            <f:SimpleForm
+                layout="ResponsiveGridLayout"
+                editable="false"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+                width="30rem"
+            >
+                <Label
+                    id="dialogTitle"
+                    text="{i18n>ProductDetail}"
+                    visible="false"
+                />
+                <Label
+                    text="{i18n>ProductId}"
+                    labelFor="productIdText"
+                />
+                <Text
+                    id="productIdText"
+                    text="{DialogProductModel>Product}"
+                />
+
+                <Label
+                    text="{i18n>ProductName}"
+                    labelFor="productNameText"
+                />
+                <Text
+                    id="productNameText"
+                    text="{DialogProductModel>Name}"
+                />
+
+                <Label
+                    text="{i18n>ProductPrice}"
+                    labelFor="productPriceText"
+                />
+                <Text
+                    id="productPriceText"
+                    text="{DialogProductModel>Price}"
+                />
+
+                <Label
+                    text="{i18n>ProductCurrency}"
+                    labelFor="productCurrencyText"
+                />
+                <Text
+                    id="productCurrencyText"
+                    text="{DialogProductModel>Currency}"
+                />
+            </f:SimpleForm>
+        </content>
+
+        <beginButton>
+            <Button
+                text="{i18n>Close}"
+                press="onCloseDialog"
+                tooltip="{i18n>closeDialogTooltip}"
+            />
+        </beginButton>
+    </Dialog>
+</c:FragmentDefinition>
